@@ -5,17 +5,31 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Directionality(
-        textDirection: TextDirection.ltr,
-        child: Text(
-          'Hello',
-          style: TextStyle(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const Home(),
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          displayMedium: TextStyle(
             color: Colors.amber,
             fontSize: 22,
             fontWeight: FontWeight.bold,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        'Hello',
+        style: Theme.of(context).textTheme.displayMedium,
       ),
     );
   }
