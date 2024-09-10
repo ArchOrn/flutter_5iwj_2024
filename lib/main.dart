@@ -1,24 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_5iwj_2024/app.dart';
 
 void main() {
-  runApp(
-    const A(color: Colors.green),
-  );
-}
-
-class A extends StatelessWidget {
-  final Color color;
-
-  const A({super.key, this.color = Colors.red});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: 50,
-        height: 50,
-        color: color,
-      ),
-    );
-  }
+  runApp(const App());
 }
