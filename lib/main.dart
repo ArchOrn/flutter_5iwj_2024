@@ -2,17 +2,21 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    const BlueScreen(),
+    const A(),
   );
 }
 
-class BlueScreen extends StatelessWidget {
-  const BlueScreen({super.key});
+class A extends StatelessWidget {
+  const A({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
+    return Center(
+      child: Container(
+        width: 50,
+        height: 50,
+        color: Colors.red,
+      ),
     );
   }
 }
