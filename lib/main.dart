@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    const A(),
+    const A(color: Colors.green),
   );
 }
 
 class A extends StatelessWidget {
-  const A({super.key});
+  final Color color;
+
+  const A({super.key, this.color = Colors.red});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class A extends StatelessWidget {
       child: Container(
         width: 50,
         height: 50,
-        color: Colors.red,
+        color: color,
       ),
     );
   }
