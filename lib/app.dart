@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_5iwj_2024/calendar_screen.dart';
+import 'package:flutter_5iwj_2024/favorites_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -23,8 +25,20 @@ class App extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final screens = [
+    const FavoritesScreen(),
+    const CalendarScreen(),
+  ];
+
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +61,12 @@ class Home extends StatelessWidget {
         ),
       ),
       backgroundColor: Colors.white,
-      body: Center(
-        child: Text(
-          'Hello',
-          style: Theme.of(context).textTheme.displayMedium,
-        ),
-      ),
+      body: screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() => _currentIndex = index);
+        },
         selectedItemColor: Colors.blue,
         items: const [
           BottomNavigationBarItem(
