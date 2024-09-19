@@ -11,37 +11,17 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Container(
           color: Colors.amber,
-          child: const SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-                SizedBox(width: 10),
-                RedSquare(),
-              ],
-            ),
+          child: Stack(
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.blue,
+              ), // 1
+              const RedSquare(), // 2
+              const RedSquare(), // 3
+              const RedSquare(), // 4 <--
+            ],
           ),
         ),
       ),
