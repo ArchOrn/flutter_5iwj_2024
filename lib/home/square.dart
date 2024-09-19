@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 class Square extends StatelessWidget {
-  final Color color;
-
-  const Square({super.key, this.color = Colors.red});
+  const Square({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      color: color,
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        width: 50,
+        height: 50,
+        color: Colors.red,
+      ),
     );
   }
 }
