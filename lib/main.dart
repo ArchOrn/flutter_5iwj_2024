@@ -1,6 +1,13 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_5iwj_2024/app.dart';
 
 void main() {
-  runApp(const App());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const App(),
+    ),
+  );
 }
