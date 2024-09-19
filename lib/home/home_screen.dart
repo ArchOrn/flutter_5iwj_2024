@@ -14,13 +14,16 @@ class HomeScreen extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                width: 100,
-                height: 100,
+                width: 200,
+                height: 200,
                 color: Colors.blue,
-              ), // 1
-              const RedSquare(), // 2
-              const RedSquare(), // 3
-              const RedSquare(), // 4 <--
+              ),
+              const RedSquare(),
+              const Positioned(
+                bottom: 0,
+                right: 0,
+                child: RedSquare(),
+              ),
             ],
           ),
         ),
