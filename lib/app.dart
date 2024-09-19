@@ -23,34 +23,56 @@ class App extends StatelessWidget {
   }
 }
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  Color activeColor = Colors.red;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.flight,
+            color: Colors.white,
+          ),
+        ),
+        title: const Text(
+          'My Title',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: Material(
-            color: activeColor,
-            child: InkWell(
-              onTap: () {
-                setState(() {
-                  activeColor = activeColor == Colors.red ? Colors.green : Colors.red;
-                });
-              },
-            ),
+        child: Text(
+          'Hello',
+          style: Theme.of(context).textTheme.displayMedium,
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.blue,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorites',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: 'Calendar',
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue,
+        shape: const CircleBorder(),
+        onPressed: () {},
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
         ),
       ),
     );
