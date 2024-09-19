@@ -46,13 +46,6 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.flight,
-            color: Colors.white,
-          ),
-        ),
         title: const Text(
           'My Title',
           style: TextStyle(
@@ -78,6 +71,10 @@ class _HomeState extends State<Home> {
             label: 'Calendar',
           ),
         ],
+      ),
+      drawer: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: const CalendarScreen(),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
