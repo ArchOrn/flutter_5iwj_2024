@@ -31,12 +31,14 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: GestureDetector(
-          onTap: () => print('Clicked!'),
-          child: Container(
-            width: 50,
-            height: 50,
+        child: SizedBox(
+          width: 50,
+          height: 50,
+          child: Material(
             color: Colors.red,
+            child: InkWell(
+              onTap: () => print('Clicked!'),
+            ),
           ),
         ),
       ),
