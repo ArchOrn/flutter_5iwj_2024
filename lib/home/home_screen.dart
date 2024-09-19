@@ -11,17 +11,15 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Container(
           color: Colors.amber,
-          child: Stack(
+          child: const Row(
             children: [
-              Container(
-                width: 200,
-                height: 200,
-                color: Colors.blue,
+              Expanded(
+                flex: 2,
+                child: RedSquare(),
               ),
-              const RedSquare(),
-              const Positioned(
-                bottom: 0,
-                right: 0,
+              SizedBox(width: 20),
+              Expanded(
+                flex: 1,
                 child: RedSquare(),
               ),
             ],
