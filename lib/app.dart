@@ -23,8 +23,15 @@ class App extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  Color activeColor = Colors.red;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +42,13 @@ class Home extends StatelessWidget {
           width: 50,
           height: 50,
           child: Material(
-            color: Colors.red,
+            color: activeColor,
             child: InkWell(
-              onTap: () => print('Clicked!'),
+              onTap: () {
+                setState(() {
+                  activeColor = activeColor == Colors.red ? Colors.green : Colors.red;
+                });
+              },
             ),
           ),
         ),
