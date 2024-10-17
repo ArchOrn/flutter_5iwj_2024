@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: ListView.builder(
+        body: ListView.separated(
           itemBuilder: (context, index) {
             return const Row(
               children: [
@@ -17,7 +17,10 @@ class HomeScreen extends StatelessWidget {
               ],
             );
           },
-          itemCount: 100000,
+          separatorBuilder: (context, index) {
+            return const SizedBox(height: 10);
+          },
+          itemCount: 100,
         ),
       ),
     );
