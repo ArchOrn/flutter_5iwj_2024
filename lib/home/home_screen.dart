@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: FutureBuilder(
-          future: ApiServices.getPosts(),
+          future: ApiServices.getUsers(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -29,10 +29,13 @@ class HomeScreen extends StatelessWidget {
 
             return ListView.separated(
               itemBuilder: (context, index) {
-                final post = snapshot.data![index];
+                final user = snapshot.data![index];
                 return ListTile(
-                  title: Text(post.title),
-                  subtitle: Text(post.body),
+                  title: Text(user.name),
+                  subtitle: Text(user.address),
+                  leading: const Icon(
+                    Icons.person,
+                  ),
                 );
               },
               separatorBuilder: (context, index) {
