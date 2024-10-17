@@ -11,16 +11,19 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         body: ListView.separated(
           itemBuilder: (context, index) {
-            return const Row(
-              children: [
-                RedSquare(),
-              ],
+            return ListTile(
+              title: Text('First name $index Last name $index'),
+              subtitle: Text('$index, rue du Faubourg St Antoine'),
+              leading: const Icon(
+                Icons.person,
+                color: Color(0xff959595),
+              ),
             );
           },
           separatorBuilder: (context, index) {
-            return const SizedBox(height: 10);
+            return const SizedBox(height: 8);
           },
-          itemCount: 100,
+          itemCount: 100000,
         ),
       ),
     );
