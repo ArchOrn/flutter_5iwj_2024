@@ -9,20 +9,18 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              ...List.generate(100, (index) {
-                return const Column(
-                  children: [
-                    RedSquare(),
-                    SizedBox(height: 10),
-                  ],
-                );
-              }),
-              const RedSquare(),
-            ],
-          ),
+        body: ListView(
+          children: [
+            ...List.generate(100000, (index) {
+              return const Column(
+                children: [
+                  RedSquare(),
+                  SizedBox(height: 10),
+                ],
+              );
+            }),
+            const RedSquare(),
+          ],
         ),
       ),
     );
