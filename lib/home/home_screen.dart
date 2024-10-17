@@ -6,15 +6,23 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: Column(
-          children: [
-            RedSquare(),
-            RedSquare(),
-            RedSquare(),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              ...List.generate(100, (index) {
+                return const Column(
+                  children: [
+                    RedSquare(),
+                    SizedBox(height: 10),
+                  ],
+                );
+              }),
+              const RedSquare(),
+            ],
+          ),
         ),
       ),
     );
