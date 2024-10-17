@@ -9,18 +9,15 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: ListView(
-          children: [
-            ...List.generate(100000, (index) {
-              return const Column(
-                children: [
-                  RedSquare(),
-                  SizedBox(height: 10),
-                ],
-              );
-            }),
-            const RedSquare(),
-          ],
+        body: ListView.builder(
+          itemBuilder: (context, index) {
+            return const Row(
+              children: [
+                RedSquare(),
+              ],
+            );
+          },
+          itemCount: 100000,
         ),
       ),
     );
