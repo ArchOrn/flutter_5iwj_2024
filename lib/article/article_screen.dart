@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ArticleScreen extends StatelessWidget {
+  static navigateTo(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      return const ArticleScreen();
+    }));
+  }
+
   const ArticleScreen({super.key});
 
   @override

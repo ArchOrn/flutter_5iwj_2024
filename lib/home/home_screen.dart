@@ -22,11 +22,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                  return const ArticleScreen();
-                }));
-              },
+              onPressed: () => ArticleScreen.navigateTo(context),
               child: const Text(
                 'Go to article',
               ),
