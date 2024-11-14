@@ -13,11 +13,31 @@ class App extends StatelessWidget {
         '/': (context) => const HomeScreen(),
       },
       onGenerateRoute: (routeSettings) {
-        switch(routeSettings.name) {
+        switch (routeSettings.name) {
           case ArticleScreen.routeName:
-            return MaterialPageRoute(builder: (context) {
-              return ArticleScreen(id: routeSettings.arguments as String);
-            });
+            return PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return ArticleScreen(id: routeSettings.arguments as String);
+              },
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                const begin = Offset(0.0, 1.0);
+                const end = Offset.zero;
+                final tween = Tween(begin: begin, end: end);
+                final opacityTween = CurveTween(curve: Curves.easeInOut);
+
+                animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+                final offsetAnimation = animation.drive(tween);
+                final opacityAnimation = animation.drive(opacityTween);
+
+                return SlideTransition(
+                  position: offsetAnimation,
+                  child: FadeTransition(
+                    opacity: opacityAnimation,
+                    child: child,
+                  ),
+                );
+              },
+            );
         }
 
         return null;
