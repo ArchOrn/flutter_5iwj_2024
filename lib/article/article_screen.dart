@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ArticleScreen extends StatelessWidget {
-  static String routeName = '/article';
-  static navigateTo(BuildContext context) {
-    Navigator.of(context).pushNamed(routeName);
+  static const String routeName = '/article';
+  static navigateTo(BuildContext context, {required String id}) {
+    Navigator.of(context).pushNamed(routeName, arguments: id);
   }
 
-  const ArticleScreen({super.key});
+  final String id;
+
+  const ArticleScreen({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,9 @@ class ArticleScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Article screen',
-              style: TextStyle(
+            Text(
+              'Article screen for id: \'$id\'',
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),

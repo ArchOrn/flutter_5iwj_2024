@@ -11,7 +11,16 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const HomeScreen(),
-        ArticleScreen.routeName: (context) => const ArticleScreen(),
+      },
+      onGenerateRoute: (routeSettings) {
+        switch(routeSettings.name) {
+          case ArticleScreen.routeName:
+            return MaterialPageRoute(builder: (context) {
+              return ArticleScreen(id: routeSettings.arguments as String);
+            });
+        }
+
+        return null;
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),

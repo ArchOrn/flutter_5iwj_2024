@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () => ArticleScreen.navigateTo(context),
+              onPressed: () => ArticleScreen.navigateTo(context, id: 'toto-tata'),
               child: const Text(
                 'Go to article',
               ),
