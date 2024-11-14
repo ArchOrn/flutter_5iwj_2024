@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: FutureBuilder(
-          future: ApiServices.getUsers(),
+          future: ApiServices.getRecipes(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -27,19 +27,35 @@ class HomeScreen extends StatelessWidget {
               );
             }
 
-            return ListView.separated(
+            return GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
               itemBuilder: (context, index) {
-                final user = snapshot.data![index];
-                return ListTile(
-                  title: Text(user.name),
-                  subtitle: Text(user.address),
-                  leading: const Icon(
-                    Icons.person,
-                  ),
+                final recipe = snapshot.data![index];
+                return Stack(
+                  children: [
+                    Image.network(recipe.imageUrl),
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Container(
+                        color: Colors.black.withOpacity(.5),
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Text(
+                          recipe.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 );
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(height: 8);
               },
               itemCount: snapshot.data!.length,
             );
