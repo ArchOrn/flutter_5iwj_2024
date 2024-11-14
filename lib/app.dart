@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_5iwj_2024/article/article_screen.dart';
 import 'package:flutter_5iwj_2024/home/home_screen.dart';
 
 class App extends StatelessWidget {
@@ -8,7 +9,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      routes: {
+        '/': (context) => const HomeScreen(),
+        ArticleScreen.routeName: (context) => const ArticleScreen(),
+      },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         textTheme: const TextTheme(

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ArticleScreen extends StatelessWidget {
+  static String routeName = '/article';
   static navigateTo(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return const ArticleScreen();
-    }));
+    Navigator.of(context).pushNamed(routeName);
   }
 
   const ArticleScreen({super.key});
