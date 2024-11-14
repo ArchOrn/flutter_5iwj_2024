@@ -7,6 +7,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Welcome'),
+      ),
       body: Container(
         width: double.infinity,
         color: Colors.amber,
@@ -23,11 +26,9 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) {
-                    return const ArticleScreen();
-                  })
-                );
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return const ArticleScreen();
+                }));
               },
               child: const Text(
                 'Go to article',

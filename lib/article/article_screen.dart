@@ -6,6 +6,9 @@ class ArticleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('My article'),
+      ),
       body: Container(
         width: double.infinity,
         color: Colors.lightGreen,
