@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_5iwj_2024/home/blocs/home_bloc.dart';
 import 'package:flutter_5iwj_2024/product/product_screen.dart';
+import 'package:flutter_5iwj_2024/shared/widgets/cart_floating_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -50,6 +51,7 @@ class HomeScreen extends StatelessWidget {
             return const SizedBox();
           },
         ),
+        floatingActionButton: const CartFloatingButton(),
       ),
     );
   }

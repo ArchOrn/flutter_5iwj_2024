@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_5iwj_2024/cart/blocs/cart_bloc.dart';
 import 'package:flutter_5iwj_2024/product/blocs/product_bloc.dart';
+import 'package:flutter_5iwj_2024/shared/widgets/cart_floating_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -84,10 +86,19 @@ class ProductScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(height: 30),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: ElevatedButton(
+                        onPressed: () => context.read<CartBloc>().add(CartLineAdded(product: product)),
+                        child: const Text('Add to cart'),
+                      ),
+                    ),
                   ],
                 ),
               );
             }),
+            floatingActionButton: const CartFloatingButton(),
           );
         },
       ),
