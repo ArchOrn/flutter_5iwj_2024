@@ -17,4 +17,15 @@ class ApiServices {
       throw AppException(message: 'An error occurred while retrieving products');
     }
   }
+
+  static Future<Product> getProduct({required int id}) async {
+    try {
+      final response = await http.get(Uri.parse('https://dummyjson.com/products/$id'));
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      return Product.fromJson(data);
+    } catch (error) {
+      log('An error occurred while retrieving product with id $id', error: error);
+      throw AppException(message: 'An error occurred while retrieving product with id $id');
+    }
+  }
 }
